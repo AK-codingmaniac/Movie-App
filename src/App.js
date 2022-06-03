@@ -2,6 +2,8 @@ import React, { useState,useEffect } from 'react';
 import Movielist from './components/Movielist';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+import Movielistheading from './components/Movielistheading';
+import Searchbox from './components/Searchbox';
 
 
 const App = () => {
@@ -9,7 +11,7 @@ const App = () => {
   const [searchvalue,setsearchvalue] = useState('');
 
   const getMovieRequest = async(searchvalue)=>{
-    const url = "http://www.omdbapi.com/?s=${searchvalue}&apikey=3e9b5587"
+    const url = `http://www.omdbapi.com/?s=${searchvalue}&apikey=3e9b5587`
     
     const response = await fetch(url);
     const responseJSON = await response.json();
@@ -29,6 +31,10 @@ const App = () => {
   return (
 
     <div className='container-fluid movie-app'>
+      <div className='row d-flex align-items-center mt-4 mb-4'>
+        <Movielistheading heading='Movies'/>
+        <Searchbox searchvalue={searchvalue} setsearchvalue={setsearchvalue}/>
+      </div>
       <div className='row'>
       <Movielist movies={movies}/>
       </div>
