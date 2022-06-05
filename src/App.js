@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import Movielistheading from './components/Movielistheading';
 import Searchbox from './components/Searchbox';
+import Addfavourites from './components/Addfavourites';
 
 
 const App = () => {
@@ -36,7 +37,7 @@ const App = () => {
         <Searchbox searchvalue={searchvalue} setsearchvalue={setsearchvalue}/>
       </div>
       <div className='row'>
-      <Movielist movies={movies}/>
+      <Movielist movies={movies} favouritecomponent={Addfavourites}/>
       </div>
     </div>
 
